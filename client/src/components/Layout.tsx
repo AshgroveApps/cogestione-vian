@@ -84,17 +84,17 @@ export default function Layout({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen flex-col">
       <SEO />
       <ScrollChrome />
-      <header className="sticky top-0 z-50 border-b border-night-900/10 bg-paper-50/85 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-night-900/10 bg-paper-50/85 backdrop-blur-xl dark:border-dark-border dark:bg-dark-bg/85">
         <div className="container-site flex h-16 items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-night-900 text-gold-400">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-night-900 text-gold-400 dark:bg-gold-500 dark:text-night-950">
               <GraduationCap className="h-5 w-5" />
             </span>
             <span className="leading-tight">
-              <span className="block font-display text-lg font-semibold tracking-tight">
-                Cogestione <span className="text-gold-600">Vian</span>
+              <span className="block font-display text-lg font-semibold tracking-tight dark:text-dark-text">
+                Cogestione <span className="text-gold-600 dark:text-gold-400">Vian</span>
               </span>
-              <span className="block text-[11px] font-medium uppercase tracking-widest text-night-900/45">
+              <span className="block text-[11px] font-medium uppercase tracking-widest text-night-900/45 dark:text-dark-textSecondary">
                 Bracciano
               </span>
             </span>
@@ -109,8 +109,8 @@ export default function Layout({ children }: { children: ReactNode }) {
                 className={({ isActive }) =>
                   `rounded-full px-3.5 py-2 text-sm font-medium transition ${
                     isActive
-                      ? "bg-night-900 text-paper-50"
-                      : "text-night-900/65 hover:bg-night-900/5 hover:text-night-900"
+                      ? "bg-night-900 text-paper-50 dark:bg-gold-500 dark:text-night-950"
+                      : "text-night-900/65 hover:bg-night-900/5 hover:text-night-900 dark:text-dark-textSecondary dark:hover:bg-dark-card dark:hover:text-dark-text"
                   }`
                 }
               >
@@ -151,7 +151,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           </div>
 
           <button
-            className="rounded-lg p-2 text-night-900 hover:bg-night-900/5 lg:hidden"
+            className="rounded-lg p-2 text-night-900 hover:bg-night-900/5 dark:text-dark-text dark:hover:bg-dark-card lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Chiudi menu" : "Apri menu"}
           >
@@ -160,7 +160,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         </div>
 
         {open && (
-          <div className="border-t border-night-900/10 bg-paper-50 lg:hidden">
+          <div className="border-t border-night-900/10 bg-paper-50 dark:border-dark-border dark:bg-dark-bg lg:hidden">
             <div className="container-site flex flex-col gap-1 py-3">
               {navLinks.map((l) => (
                 <NavLink
@@ -170,7 +170,9 @@ export default function Layout({ children }: { children: ReactNode }) {
                   onClick={() => setOpen(false)}
                   className={({ isActive }) =>
                     `rounded-xl px-3 py-2.5 text-sm font-medium ${
-                      isActive ? "bg-night-900 text-paper-50" : "text-night-900/75 hover:bg-night-900/5"
+                      isActive
+                        ? "bg-night-900 text-paper-50 dark:bg-gold-500 dark:text-night-950"
+                        : "text-night-900/75 hover:bg-night-900/5 dark:text-dark-textSecondary dark:hover:bg-dark-card"
                     }`
                   }
                 >
@@ -182,7 +184,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                   toggleTheme();
                   setOpen(false);
                 }}
-                className="rounded-xl px-3 py-2.5 text-sm font-medium text-night-900/75 hover:bg-night-900/5 flex items-center gap-2"
+                className="rounded-xl px-3 py-2.5 text-sm font-medium text-night-900/75 hover:bg-night-900/5 flex items-center gap-2 dark:text-dark-textSecondary dark:hover:bg-dark-card"
               >
                 {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                 {theme === "dark" ? "Modalità chiara" : "Modalità scura"}
@@ -191,7 +193,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                 <Link
                   to="/rappresentanti"
                   onClick={() => setOpen(false)}
-                  className="rounded-xl bg-gold-500/15 px-3 py-2.5 text-sm font-semibold text-gold-700"
+                  className="rounded-xl bg-gold-500/15 px-3 py-2.5 text-sm font-semibold text-gold-700 dark:bg-gold-500/20 dark:text-gold-400"
                 >
                   Area rappresentanti
                 </Link>
@@ -212,7 +214,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
       <main className="flex-1">{children}</main>
 
-      <footer className="relative mt-20 bg-night-900 text-paper-100">
+      <footer className="relative mt-20 bg-night-900 text-paper-100 dark:bg-dark-bg dark:text-dark-text">
         <span
           aria-hidden
           className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-500/60 to-transparent"
@@ -220,29 +222,29 @@ export default function Layout({ children }: { children: ReactNode }) {
         <div className="container-site grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-500/15 text-gold-400">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-500/15 text-gold-400 dark:bg-gold-500/20 dark:text-gold-400">
                 <GraduationCap className="h-5 w-5" />
               </span>
-              <span className="font-display text-xl font-semibold text-paper-50">
+              <span className="font-display text-xl font-semibold text-paper-50 dark:text-dark-text">
                 Cogestione Vian
               </span>
             </div>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-paper-100/65">
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-paper-100/65 dark:text-dark-textSecondary">
               Gli studenti del Liceo Scientifico Statale «Ignazio Vian» propongono corsi,
               li insegnano ai compagni e li vivono insieme. Un progetto di scuola, per la scuola.
             </p>
           </div>
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-gold-400">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-gold-400 dark:text-gold-400">
               La scuola
             </h3>
-            <address className="mt-4 space-y-1.5 text-sm not-italic text-paper-100/70">
+            <address className="mt-4 space-y-1.5 text-sm not-italic text-paper-100/70 dark:text-dark-textSecondary">
               <p>Liceo Scientifico Statale «Ignazio Vian»</p>
               <p>Largo Cesare Pavese, 1 — 00062 Bracciano (RM)</p>
               <p>Via della Mainella, snc — 00061 Anguillara Sabazia (RM)</p>
               <p className="pt-2">
                 <a
-                  className="underline decoration-gold-500/50 underline-offset-4 hover:text-gold-300"
+                  className="underline decoration-gold-500/50 underline-offset-4 hover:text-gold-300 dark:hover:text-gold-400"
                   href="https://www.liceovian.edu.it"
                   target="_blank"
                   rel="noreferrer"
@@ -252,7 +254,7 @@ export default function Layout({ children }: { children: ReactNode }) {
               </p>
               <p className="pt-1">
                 <a
-                  className="underline decoration-gold-500/50 underline-offset-4 hover:text-gold-300"
+                  className="underline decoration-gold-500/50 underline-offset-4 hover:text-gold-300 dark:hover:text-gold-400"
                   href="https://sites.google.com/liceovian.edu.it/bullismocyberbullismo/scegli"
                   target="_blank"
                   rel="noreferrer"

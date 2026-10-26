@@ -27,11 +27,11 @@ export default {
           300: "#DCD5C3",
         },
         dark: {
-          bg: "#0B1220",
-          card: "#121B2D",
-          border: "#1C2740",
-          text: "#F5F2EA",
-          textSecondary: "#A0A8B8",
+          bg: "#0F1419",
+          card: "#1A202C",
+          border: "#2D3748",
+          text: "#E2E8F0",
+          textSecondary: "#A0AEC0",
         },
       },
       fontFamily: {
